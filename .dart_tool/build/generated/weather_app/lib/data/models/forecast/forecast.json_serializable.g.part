@@ -1,0 +1,13 @@
+// **************************************************************************
+// JsonSerializableGenerator
+// **************************************************************************
+
+Forecast _$ForecastFromJson(Map<String, dynamic> json) => Forecast(
+      forecastDay: (json['forecastday'] as List<dynamic>)
+          .map((e) => DailyForecast.fromJson(e as Map<String, dynamic>))
+          .toList(),
+    );
+
+Map<String, dynamic> _$ForecastToJson(Forecast instance) => <String, dynamic>{
+      'forecastday': instance.forecastDay,
+    };
